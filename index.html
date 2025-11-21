@@ -98,20 +98,51 @@
             20% { transform: scaleY(1.0); }
         }
 
+        /* Marquee Animation */
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
         /* Utility to hide scrollbar but keep functionality */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
     </style>
 </head>
-<body class="bg-brand-light text-gray-800 antialiased overflow-x-hidden selection:bg-brand-coral selection:text-white">
+<body class="bg-brand-light text-gray-800 antialiased overflow-x-hidden selection:bg-brand-coral selection:text-white relative">
 
     <!-- Custom Cursor Elements -->
     <div id="cursor-dot" class="hidden md:block"></div>
     <div id="cursor-outline" class="hidden md:block"></div>
 
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 bg-transparent">
+    <!-- Announcement Marquee -->
+    <div id="announcement-bar" class="fixed top-0 left-0 w-full bg-gray-900 text-white text-xs font-sans font-medium z-[60] flex items-center justify-between overflow-hidden h-10 shadow-md transition-transform duration-300">
+        <!-- Marquee Text Container -->
+        <div class="flex-1 overflow-hidden relative h-full flex items-center">
+            <div class="marquee-content absolute">
+                <span class="mx-4">Built by Gemini 3 and Rabboni Kabongo ✦ Exploring the future of AI-Human Collaboration ✦ Crafted with Vanilla JS & Tailwind CSS</span>
+                <span class="mx-4">Built by Gemini 3 and Rabboni Kabongo ✦ Exploring the future of AI-Human Collaboration ✦ Crafted with Vanilla JS & Tailwind CSS</span>
+                <span class="mx-4">Built by Gemini 3 and Rabboni Kabongo ✦ Exploring the future of AI-Human Collaboration ✦ Crafted with Vanilla JS & Tailwind CSS</span>
+                <span class="mx-4">Built by Gemini 3 and Rabboni Kabongo ✦ Exploring the future of AI-Human Collaboration ✦ Crafted with Vanilla JS & Tailwind CSS</span>
+            </div>
+        </div>
+        
+        <!-- Close Button -->
+        <button id="close-marquee" class="px-4 h-full bg-gray-900 hover:bg-gray-800 text-gray-400 hover:text-white transition-colors z-10 interactive flex items-center justify-center border-l border-gray-800">
+            <i class="ph-bold ph-x"></i>
+        </button>
+    </div>
+
+    <!-- Navigation (Adjusted top position via style) -->
+    <!-- Top value is controlled by JS variable logic or manual style setting -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 bg-transparent" style="top: 40px;"> 
         <div class="container mx-auto px-6 flex justify-between items-center relative z-50">
             <a href="#" class="text-2xl font-sans font-black tracking-tighter text-white interactive nav-link">
                 NATHAN<span class="text-brand-coral">.</span>AUDIO
@@ -232,7 +263,7 @@
     <section id="work" class="py-24 bg-brand-light">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="font-sans font-bold text-4xl text-brand-navy mb-4">Featured Audio</h2>
+                <h1 class="font-sans font-bold text-4xl text-brand-navy mb-4">Featured Audio</h2>
                 <div class="h-1 w-20 bg-brand-coral mx-auto rounded-full"></div>
             </div>
 
@@ -330,7 +361,6 @@
         <div class="container mx-auto px-6 text-center text-gray-400 text-sm">
             <!-- Dynamic Date Inserted Here -->
             <p>&copy; <span id="current-year"></span> Nathan Audio. All rights reserved.</p>
-	    <p> Created by Rabboni Kabongo | +260973178018 | Roviolt Platforms </p>
         </div>
     </footer>
 
@@ -570,6 +600,31 @@
         };
 
         /**
+         * MODULE: Marquee Manager (NEW)
+         */
+        const MarqueeManager = {
+            init() {
+                const bar = document.getElementById('announcement-bar');
+                const btn = document.getElementById('close-marquee');
+                const nav = document.getElementById('navbar');
+                
+                if(!bar || !btn) return;
+
+                // Set Height of Nav initially
+                const barHeight = bar.offsetHeight;
+                nav.style.top = `${barHeight}px`;
+
+                btn.addEventListener('click', () => {
+                    bar.style.transform = 'translateY(-100%)';
+                    nav.style.top = '0px';
+                    setTimeout(() => {
+                        bar.style.display = 'none';
+                    }, 300); // Remove from DOM flow after slide out
+                });
+            }
+        };
+
+        /**
          * MODULE: UI Renderer
          */
         const UIRenderer = {
@@ -631,7 +686,8 @@
             UIRenderer.renderProjects();
             UIRenderer.renderTestimonial(0);
             ContactManager.init();
-            DropdownManager.init(); // Initialize Dropdown Logic
+            DropdownManager.init();
+            MarqueeManager.init(); // Initialize Marquee
 
             document.getElementById('current-year').textContent = new Date().getFullYear();
 
