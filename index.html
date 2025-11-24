@@ -259,7 +259,7 @@
         </div>
     </section>
 
-    <!-- Work Section -->
+	    <!-- Work Section -->
     <section id="work" class="py-24 bg-brand-light">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
@@ -371,7 +371,7 @@
          * 1. Toggle `useLocalAudio` to true when you are ready to use your own files.
          * 2. Ensure your audio files are in an 'audio' folder next to this HTML file.
          */
-        const useLocalAudio = false; // <--- Set this to TRUE when you have your own files!
+        const useLocalAudio = true; // <--- Set this to TRUE when you have your own files!
         const localAudioPath = "./audio/"; // <--- Your public directory
 
         /**
@@ -380,9 +380,9 @@
          */
         const contactConfig = {
             email: "nathan@sounddesign.com",
-            whatsappNumber: "1234567890", // Format: CountryCode + Number (No + or spaces)
-            displayPhone: "+1 (555) 012-3456", // <--- PLACEHOLDER NUMBER (Visual Only)
-            facebookUrl: "https://facebook.com/nathan.audio",
+            whatsappNumber: "0976077405", // Format: CountryCode + Number (No + or spaces)
+            displayPhone: "0976077505", // <--- PLACEHOLDER NUMBER (Visual Only)
+            facebookUrl: "https://web.facebook.com/nathan.sounds.2025?_rdc=1&_rdr#",
             linkedinUrl: "https://linkedin.com/in/nathan",
             soundcloudUrl: "https://soundcloud.com/nathan",
             
@@ -398,10 +398,10 @@
             {
                 id: 1,
                 title: "Summer Refresh",
-                client: "SodaPop Inc.",
+                client: "Mint Lounge.",
                 category: "Advertising",
-                image: "https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?q=80&w=1780&auto=format&fit=crop",
-                audio: "summer-refresh.mp3", 
+                image: "https://images.unsplash.com/photo-1559523161-0fc0d8b38a7a?q=80&w=800&auto=format&fit=crop",
+                audio: "01.mp3", 
                 fallback: "https://assets.mixkit.co/music/preview/mixkit-sun-and-his-daughter-580.mp3"
             },
             {
@@ -409,8 +409,8 @@
                 title: "Tech Weekly Intro",
                 client: "Silicon Valley News",
                 category: "Media",
-                image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop",
-                audio: "tech-intro.mp3",
+                image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
+                audio: "02.mp3",
                 fallback: "https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3"
             },
             {
@@ -418,8 +418,8 @@
                 title: "Corporate Identity",
                 client: "Bank of Future",
                 category: "Corporate",
-                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-                audio: "corporate-bank.mp3",
+                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
+                audio: "03.mp3",
                 fallback: "https://assets.mixkit.co/music/preview/mixkit-driving-ambition-32.mp3"
             },
             {
@@ -427,7 +427,7 @@
                 title: "Podcast Bumper",
                 client: "Crime Solver",
                 category: "Media",
-                image: "https://images.unsplash.com/photo-1478737270239-2f02b77ac6d5?q=80&w=2066&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1478737270239-2f02b77ac6d5?q=80&w=800&auto=format&fit=crop",
                 audio: "podcast-bumper.mp3",
                 fallback: "https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3"
             },
@@ -436,7 +436,7 @@
                 title: "Toy Store Jingle",
                 client: "PlayTime",
                 category: "Advertising",
-                image: "https://images.unsplash.com/photo-1558060370-d644479cb6f7?q=80&w=2053&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1558060370-d644479cb6f7?q=80&w=800&auto=format&fit=crop",
                 audio: "toy-store.mp3",
                 fallback: "https://assets.mixkit.co/music/preview/mixkit-happy-times-158.mp3"
             },
@@ -445,14 +445,14 @@
                 title: "Meditate App",
                 client: "CalmSpace",
                 category: "Corporate",
-                image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=2525&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=800&auto=format&fit=crop",
                 audio: "meditate.mp3",
                 fallback: "https://assets.mixkit.co/music/preview/mixkit-dreaming-big-31.mp3"
             }
         ];
 
         const testimonials = [
-            { text: "Nathan captured the exact vibe we needed in 48 hours. The jingle is stuck in everyone's head!", author: "Sarah Jenkins, CEO SodaPop" },
+            { text: "Nathan captured the exact vibe we needed in 48 hours. The jingle is stuck in everyone's head!", author: "Nadia Nawaz, CEO Mint Lounge Restaurant" },
             { text: "Professional, vibrant, and incredibly talented. The sound branding elevated our YouTube channel.", author: "Mark Lee, Tech Reviewer" },
             { text: "I didn't know we needed a sonic logo until Nathan made one. Now we use it everywhere.", author: "Elena Rodriguez, StartUp Founder" }
         ];
@@ -642,7 +642,7 @@
                     const html = `
                         <div class="group relative rounded-xl overflow-hidden shadow-lg interactive bg-white fade-in" style="animation-delay: ${index * 100}ms">
                             <div class="aspect-video relative overflow-hidden">
-                                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                                <img src="${p.image}" alt="${p.title}" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                                 <div class="absolute inset-0 bg-brand-navy/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                     <button 
                                         onclick="AudioManager.play('audio-${p.id}', this)"
