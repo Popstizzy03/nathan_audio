@@ -290,18 +290,23 @@
     <!-- Featured Videos Section -->
     <section id="featured-videos" class="py-24 bg-brand-light">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
+            <div class="text-center mb-8">
                 <h2 class="font-sans font-bold text-4xl text-brand-navy mb-4">Featured Videos</h2>
                 <div class="h-1 w-20 bg-brand-coral mx-auto rounded-full"></div>
             </div>
 
-            <!-- Carousel Wrapper with Buttons -->
-            <div class="relative px-4 md:px-12 group">
+            <!-- Carousel Wrapper -->
+            <div class="relative group">
                 
-                <!-- Left Button -->
-                <button id="video-prev" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-brand-navy text-white hover:bg-brand-coral transition-all shadow-xl hover:scale-110 interactive border border-white/20" aria-label="Scroll Left">
-                    <i class="ph-bold ph-caret-left text-xl md:text-2xl"></i>
-                </button>
+                <!-- Controls (Top, centered) -->
+                <div class="flex justify-center gap-4 mb-6">
+                    <button id="video-prev" class="p-3 rounded-full bg-brand-navy text-white hover:bg-brand-coral transition-all shadow-xl hover:scale-110 interactive border border-white/20" aria-label="Scroll Left">
+                        <i class="ph-bold ph-caret-left text-xl"></i>
+                    </button>
+                    <button id="video-next" class="p-3 rounded-full bg-brand-navy text-white hover:bg-brand-coral transition-all shadow-xl hover:scale-110 interactive border border-white/20" aria-label="Scroll Right">
+                        <i class="ph-bold ph-caret-right text-xl"></i>
+                    </button>
+                </div>
 
                 <!-- Carousel Container -->
                 <!-- using flex-nowrap and overflow-x-auto for horizontal scrolling -->
@@ -342,11 +347,6 @@
                     </div>
 
                 </div>
-
-                <!-- Right Button -->
-                <button id="video-next" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-brand-navy text-white hover:bg-brand-coral transition-all shadow-xl hover:scale-110 interactive border border-white/20" aria-label="Scroll Right">
-                    <i class="ph-bold ph-caret-right text-xl md:text-2xl"></i>
-                </button>
             </div>
             
             <!-- Scroll Hint (Mobile Only) -->
