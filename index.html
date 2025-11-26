@@ -290,36 +290,54 @@
     <!-- Featured Videos Section -->
     <section id="featured-videos" class="py-24 bg-brand-light">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
+            <div class="text-center mb-12">
                 <h2 class="font-sans font-bold text-4xl text-brand-navy mb-4">Featured Videos</h2>
-                <div class="h-1 w-20 bg-brand-coral mx-auto rounded-full mb-4"></div>
-                <span class="text-lg font-semibold text-brand-coral uppercase tracking-wider">Client: Mint Lounge</span>
+                <div class="h-1 w-20 bg-brand-coral mx-auto rounded-full"></div>
             </div>
 
-            <div class="relative w-full max-w-sm md:max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl aspect-[9/16] border-4 border-brand-navy interactive">
-                <iframe 
-                    src="https://player.vimeo.com/video/1140313256?h=a8726591cf&badge=0&autopause=0&player_id=0&app_id=58479" 
-                    width="100%" 
-                    height="100%" 
-                    frameborder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture" 
-                    allowfullscreen 
-                    loading="lazy" 
-                    class="absolute top-0 left-0 w-full h-full"
-                ></iframe>
-            </div>
+            <!-- Carousel Container -->
+            <!-- using flex-nowrap and overflow-x-auto for horizontal scrolling -->
+            <div class="flex flex-nowrap overflow-x-auto snap-x snap-mandatory gap-8 pb-12 items-center xl:justify-center no-scrollbar">
+                
+                <!-- Video 1: Mint Lounge (Vertical) -->
+                <div class="snap-center shrink-0 w-[85vw] md:w-[350px] flex flex-col items-center transition-transform duration-300 hover:scale-[1.02]">
+                    <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl aspect-[9/16] border-4 border-brand-navy interactive bg-black">
+                        <iframe 
+                            src="https://player.vimeo.com/video/1140313256?h=a8726591cf&badge=0&autopause=0&player_id=0&app_id=58479" 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            allow="autoplay; fullscreen; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy" 
+                            class="absolute top-0 left-0 w-full h-full"
+                        ></iframe>
+                    </div>
+                    <span class="mt-6 text-lg font-semibold text-brand-coral uppercase tracking-wider">Client: Mint Lounge</span>
+                </div>
 
-            <div class="relative w-full max-w-full lg:max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl aspect-video border-4 border-brand-navy interactive mt-8">
-                <iframe 
-                    src="https://player.vimeo.com/video/1140785377?h=3e712760ef&badge=0&autopause=0&player_id=0&app_id=58479" 
-                    width="100%" 
-                    height="100%" 
-                    frameborder="0" 
-                    allow="autoplay; fullscreen; picture-in-picture" 
-                    allowfullscreen 
-                    loading="lazy" 
-                    class="absolute top-0 left-0 w-full h-full"
-                ></iframe>
+                <!-- Video 2: Marie's Glow (Horizontal) -->
+                <div class="snap-center shrink-0 w-[85vw] md:w-[600px] flex flex-col items-center transition-transform duration-300 hover:scale-[1.02]">
+                    <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl aspect-video border-4 border-brand-navy interactive bg-black">
+                        <iframe 
+                            src="https://player.vimeo.com/video/1140785377?h=3e712760ef&badge=0&autopause=0&player_id=0&app_id=58479" 
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            allow="autoplay; fullscreen; picture-in-picture" 
+                            allowfullscreen 
+                            loading="lazy" 
+                            class="absolute top-0 left-0 w-full h-full"
+                        ></iframe>
+                    </div>
+                    <span class="mt-6 text-lg font-semibold text-brand-coral uppercase tracking-wider">Client: Marie's Glow</span>
+                </div>
+
+            </div>
+            
+            <!-- Scroll Hint (Mobile Only) -->
+            <div class="text-center md:hidden text-gray-400 text-sm animate-pulse">
+                <i class="ph-bold ph-arrow-left"></i> Swipe to explore <i class="ph-bold ph-arrow-right"></i>
             </div>
         </div>
     </section>
